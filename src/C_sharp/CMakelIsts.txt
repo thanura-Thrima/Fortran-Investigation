@@ -1,0 +1,14 @@
+set (PROJECT_NAME c_sharp_lib)
+
+INCLUDE(CSharpUtilities)
+
+
+ADD_LIBRARY(${PROJECT_NAME} SHARED
+    "mylib.cs")
+
+
+# Set CLR assembly properties.
+SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES
+    VS_DOTNET_REFERENCES "System;System.Core"
+    VS_GLOBAL_ROOTNAMESPACE ${PROJECT_NAME}
+)
