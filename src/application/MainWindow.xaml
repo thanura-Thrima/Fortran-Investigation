@@ -18,14 +18,26 @@
             <MenuItem Header="View"/>
             <MenuItem Header="Help"/>
         </Menu>
-        <Grid Grid.Row="1" Background="Black" MouseWheel="onMouseWheel" MouseDown="view_MouseDown">
+        <Grid Grid.Row="1" Background="Black" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition MinWidth="300"/>
+                <ColumnDefinition MinWidth="200" Width="2*"/>
+                <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
-            <Rectangle Grid.Column="0" Fill="White"/>
+            <!--DataGrid Grid.Column="0"
+                      ItemsSource="{Binding GeometryObjects}"
+                      SelectedItem="{Binding SelectedObject}">
 
-            <Viewport3D x:Name="view" Grid.Column="1"  HorizontalAlignment="Stretch" >
+            </DataGrid-->
+
+            <TreeView Grid.Column="0" ItemsSource="{Binding GeometryObjects}" >
+                <TreeView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding m_name}" FontSize="16" FontWeight="Bold" />
+                    </DataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+
+            <Viewport3D x:Name="view" Grid.Column="1"  MouseWheel="onMouseWheel" MouseDown="view_MouseDown" >
                 <Viewport3D.Camera>
                     <PerspectiveCamera x:Name="perspective" Position="0,0,2" LookDirection="0,0,-1" FieldOfView="60"/>
                 </Viewport3D.Camera>

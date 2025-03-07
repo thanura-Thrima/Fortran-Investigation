@@ -15,6 +15,9 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	"App.xaml.cs"
 	"MainWindow.xaml"
 	"MainWindow.xaml.cs"
+	"ViewModel/MainWindowViewModel.cs"
+	"MVVM/ViewModelBase.cs"
+	"Model/GeometryObject.cs"
     
     "Properties/AssemblyInfo.cs"
 	"Properties/Resources.Designer.cs"

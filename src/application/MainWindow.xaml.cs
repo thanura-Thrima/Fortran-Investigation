@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
+using WpfApp.ViewModel;
 
 namespace application
 {
@@ -16,6 +17,10 @@ namespace application
         public MainWindow()
         {
             InitializeComponent();
+
+            MainWindowViewModel vm = new MainWindowViewModel();
+            DataContext = vm;
+
             myViewport3D = view;
             Model3DGroup myModel3DGroup = new Model3DGroup();
             myGeometryModel = new GeometryModel3D();
@@ -104,10 +109,13 @@ namespace application
 
             double ret;
             double a = 1.0;
-            double b = 1.2; 
-            FortranInterface.Math.SUBSTRACT(ref a,ref b, out ret);
+            double b = 1.2;
+            double[] array = new double[] { a, b, a,1.7,0.4 };
+            int length = array.Length;
+            FortranInterface.Math.ADD(ref a,ref b, out ret);
+            FortranInterface.Sort.QUICK_SORT(array, ref length);
 
-    }
+        }
         private void onMouseWheel(object sender, MouseWheelEventArgs e)
         {
             RotateTransform3D myRotateTransform3D = new RotateTransform3D();

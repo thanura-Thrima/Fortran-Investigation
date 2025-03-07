@@ -23,6 +23,10 @@ ENDIF()
 #Set the C++ standard for all projects.
 SET(CMAKE_CXX_STANDARD 17)
 
+SET(OpenMP_Fortran_FLAGS:STRING "-fopenmp")
+SET(OpenMP_Fortran_LIB_NAMES:STRING "-gomp")
+find_package(OpenMP)
+
 # Define runtime intermediate build directory, so that debugging the Visual Studio solution works as expected.
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/binaries/")
 
